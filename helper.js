@@ -60,7 +60,7 @@ class MongoConnection {
         if (!this.#client) {
             // Attempting the connection
             try {
-                this.#client = new MongoClient(this.#uri);
+                this.#client = new MongoClient(this.#uri, { useUnifiedTopology: true });
                 await this.#client.connect()
             }
             catch (e) {
